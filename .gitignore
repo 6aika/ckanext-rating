@@ -1,0 +1,9 @@
+syntax: glob
+# generic
+*.pyc
+*.swp
+*.swo
+.DS_Store
+*.egg-info
+sandbox/*
+dist
