@@ -1,0 +1,24 @@
+{% ckan_extends %}
+
+{% block package_info_inner %}
+  {% block heading %}
+    <h1 class="heading">{{ pkg.title or pkg.name }}</h1>
+  {% endblock %}
+  {% if pkg.author %}
+      <span class="smallest">{{_('Submitted by')}}</span>
+      <p>{{ pkg.author }}</p>
+  {% endif %}
+  {% block rating %}
+    <p>
+      {% snippet "rating/stars.html", package=pkg %}
+      ({{h.package_rating(None, {'package_id' : pkg.id} ).ratings_count}})
+    </p>
+  {% endblock %}
+  {% if pkg.url %}
+    <div class="info">
+      <a class="btn btn-primary" href="{{ pkg.url }}" target="_blank">
+        <i class="icon-external-link"></i> {{ _('Launch website') }}
+      </a>
+    </div>
+  {% endif %}
+{% endblock %}

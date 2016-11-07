@@ -1,0 +1,19 @@
+{#
+Renders a set of stars
+
+stars  - The number of stars to be displayed.
+
+    {% snippet "rating/stars_inactive.html", stars=4 %}
+
+#}
+
+<span class="star-rating{% if stars == 0 %} no-stars{% endif %}">
+  <span class="star-rating-stars">
+    {%- for index in range(stars|int) -%}
+      <span class="icon icon-star rating_star"></span>
+    {%- endfor -%}
+    {%- for index in range(stars|int, 5) -%}
+      <span class="icon icon-star-empty rating_star"></span>
+    {%- endfor -%}
+  </span>
+</span>

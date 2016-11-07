@@ -1,0 +1,21 @@
+{#
+Renders a set of stars, which can be clicked to submit a rating
+
+stars  - The number of stars to be displayed.
+package  - The package for which the rating belongs to
+
+    {% snippet "rating/stars.html", package=pkg %}
+
+#}
+
+{% set stars = h.package_rating(None, {'package_id' : package.id} ).rating %}
+<span class="star-rating{% if stars == 0 %} no-stars{% endif %}">
+  <span class="star-rating-stars">
+    {%- for index in range(stars|int) -%}
+      <a class="icon icon-star rating_star" href="/rating/{{ package.type }}/{{ package.name }}/{{ index + 1 }}"></a>
+    {%- endfor -%}
+    {%- for index in range(stars|int, 5) -%}
+      <a class="icon icon-star-empty rating_star" href="/rating/{{ package.type }}/{{ package.name }}/{{ index + 1 }}"></a>
+    {%- endfor -%}
+  </span>
+</span>
