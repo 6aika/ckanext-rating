@@ -4,6 +4,6 @@ syntax: glob
 *.swp
 *.swo
 .DS_Store
-*.egg-info
+*.egg-info/
 sandbox/*
 dist
