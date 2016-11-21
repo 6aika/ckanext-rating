@@ -14,6 +14,8 @@ class RatingPlugin(plugins.SingletonPlugin):
         toolkit.add_template_directory(config_, 'templates')
         toolkit.add_public_directory(config_, 'public')
         toolkit.add_resource('fanstatic', 'rating')
+        toolkit.add_resource('public/css/', 'rating_css')
+        toolkit.add_resource('public/js/', 'rating_js')
 
     # IActions
 
