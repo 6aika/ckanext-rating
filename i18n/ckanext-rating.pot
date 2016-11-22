@@ -1,0 +1,120 @@
+# Translations template for ckanext-rating.
+# Copyright (C) 2016 ORGANIZATION
+# This file is distributed under the same license as the ckanext-rating project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ckanext-rating 0.0.1\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2016-11-22 11:39+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ckanext/rating/logic/action.py:29
+msgid "You must supply a package id or name (parameter \"package\")."
+msgstr ""
+
+#: ckanext/rating/logic/action.py:32
+msgid "You must supply a rating (parameter \"rating\")."
+msgstr ""
+
+#: ckanext/rating/logic/action.py:37
+msgid "Rating must be an integer value."
+msgstr ""
+
+#: ckanext/rating/logic/action.py:41
+#, python-format
+msgid "Rating must be between %i and %i."
+msgstr ""
+
+#: ckanext/rating/logic/action.py:44
+msgid "Not found"
+msgstr ""
+
+#: ckanext/rating/logic/action.py:59
+msgid "You must supply a package id (parameter \"package_id\")."
+msgstr ""
+
+#: ckanext/rating/templates/package/snippets/info.html:26
+#: ckanext/rating/templates/showcase/snippets/showcase_info.html:17
+msgid "Your rating"
+msgstr ""
+
+#: ckanext/rating/templates/package/snippets/info.html:35
+msgid "Followers"
+msgstr ""
+
+#: ckanext/rating/templates/rating/rating_description.html:10
+msgid "no rating given"
+msgstr ""
+
+#: ckanext/rating/templates/rating/rating_description.html:12
+msgid "bad"
+msgstr ""
+
+#: ckanext/rating/templates/rating/rating_description.html:14
+msgid "passable"
+msgstr ""
+
+#: ckanext/rating/templates/rating/rating_description.html:16
+msgid "ok"
+msgstr ""
+
+#: ckanext/rating/templates/rating/rating_description.html:18
+msgid "good"
+msgstr ""
+
+#: ckanext/rating/templates/rating/rating_description.html:20
+msgid "excellent"
+msgstr ""
+
+#: ckanext/rating/templates/rating/stars_inactive.html:22
+msgid "rating"
+msgstr ""
+
+#: ckanext/rating/templates/rating/stars_inactive.html:22
+msgid "ratings"
+msgstr ""
+
+#: ckanext/rating/templates/showcase/snippets/showcase_info.html:8
+msgid "Submitted by"
+msgstr ""
+
+#: ckanext/rating/templates/showcase/snippets/showcase_info.html:26
+msgid "Launch website"
+msgstr ""
+
+#: ckanext/rating/templates/showcase/snippets/showcase_item.html:19
+msgid "This showcase has no description"
+msgstr ""
+
+#: ckanext/rating/templates/showcase/snippets/showcase_item.html:24
+msgid "{num} Dataset"
+msgid_plural "{num} Datasets"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ckanext/rating/templates/showcase/snippets/showcase_item.html:26
+msgid "0 Datasets"
+msgstr ""
+
+#: ckanext/rating/templates/showcase/snippets/showcase_item.html:30
+#: ckanext/rating/templates/showcase/snippets/showcase_item.html:31
+msgid "View {showcase_title}"
+msgstr ""
+
+#: ckanext/rating/templates/showcase/snippets/showcase_item.html:35
+msgid "Remove"
+msgstr ""
+
+#: ckanext/rating/templates/showcase/snippets/showcase_item.html:35
+msgid "Remove dataset from this showcase"
+msgstr ""
+
