@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-rating 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-11-22 11:39+0000\n"
+"POT-Creation-Date: 2016-11-22 13:03+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,12 +42,16 @@ msgstr ""
 msgid "You must supply a package id (parameter \"package_id\")."
 msgstr ""
 
-#: ckanext/rating/templates/package/snippets/info.html:26
+#: ckanext/rating/templates/package/snippets/info.html:23
+msgid "Rating"
+msgstr ""
+
+#: ckanext/rating/templates/package/snippets/info.html:29
 #: ckanext/rating/templates/showcase/snippets/showcase_info.html:17
 msgid "Your rating"
 msgstr ""
 
-#: ckanext/rating/templates/package/snippets/info.html:35
+#: ckanext/rating/templates/package/snippets/info.html:43
 msgid "Followers"
 msgstr ""
 
@@ -75,11 +79,11 @@ msgstr ""
 msgid "excellent"
 msgstr ""
 
-#: ckanext/rating/templates/rating/stars_inactive.html:22
+#: ckanext/rating/templates/rating/stars_inactive.html:23
 msgid "rating"
 msgstr ""
 
-#: ckanext/rating/templates/rating/stars_inactive.html:22
+#: ckanext/rating/templates/rating/stars_inactive.html:23
 msgid "ratings"
 msgstr ""
 
