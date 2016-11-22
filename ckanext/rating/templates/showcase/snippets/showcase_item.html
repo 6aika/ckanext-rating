@@ -9,8 +9,7 @@
   {% endblock %}
   {% block rating %}
     <p>
-      {% snippet "rating/stars_inactive.html", stars=h.package_rating(None, {'package_id' : package.id} ).rating %}
-      ({{h.package_rating(None, {'package_id' : package.id} ).ratings_count}})
+      {% snippet "rating/stars_inactive.html", package=package %}
     </p>
   {% endblock %}
   {% block notes %}

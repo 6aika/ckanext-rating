@@ -46,7 +46,7 @@ class Rating(Base):
             existing_rating.update({ 'rating': rating })
             model.repo.commit()
             log.info('Review updated for package')
-        else:       
+        else:
             user_id = None
             from ckan.model import User
 

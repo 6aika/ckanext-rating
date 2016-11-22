@@ -11,14 +11,14 @@ package  - The package for which the rating belongs to
 {% resource "rating_css/rating.css" %}
 {% resource "rating_js/rating.js" %}
 
-{% set stars = h.package_rating(None, {'package_id' : package.id} ).rating %}
+{% set stars = h.get_user_rating(package.id) %}
 <span class="star-rating{% if stars == 0 %} no-stars{% endif %}">
   <span class="star-rating-stars">
     {%- for index in range(stars|int) -%}
-      <a class="icon icon-star rating-star" id="star-{{index}}" href="/rating/{{ package.type }}/{{ package.name }}/{{ index + 1 }}"></a>
+      <a class="icon icon-star icon-2x rating-star" id="star-{{index}}" href="/rating/{{ package.type }}/{{ package.name }}/{{ index + 1 }}"></a>
     {%- endfor -%}
     {%- for index in range(stars|int, 5) -%}
-      <a class="icon icon-star-empty rating-star" href="/rating/{{ package.type }}/{{ package.name }}/{{ index + 1 }}"></a>
+      <a class="icon icon-star-empty icon-2x rating-star" href="/rating/{{ package.type }}/{{ package.name }}/{{ index + 1 }}"></a>
     {%- endfor -%}
   </span>
 </span>

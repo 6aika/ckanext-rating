@@ -1,0 +1,21 @@
+{#
+Renders a word to describe the rating value
+
+rating  - The numerical value of the rating to display
+
+    {% snippet "rating/rating_description.html", rating=4 %}
+#}
+
+{%- if not rating -%}
+    ({{ _('no rating given') }})
+{%- elif rating|int == 1 -%}
+    ({{ _('bad') }})
+{%- elif rating|int == 2 -%}
+    ({{ _('passable') }})
+{%- elif rating|int == 3 -%}
+    ({{ _('ok') }})
+{%- elif rating|int == 4 -%}
+    ({{ _('good') }})
+{%- elif rating|int == 5 -%}
+    ({{ _('excellent') }})
+{%- endif -%}

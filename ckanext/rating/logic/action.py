@@ -1,5 +1,4 @@
 import logging
-import json
 
 from ckan.common import _
 from ckan.logic import ValidationError
@@ -16,7 +15,7 @@ def rating_package_create(context, data_dict):
     '''
     model = context.get('model')
     user = context.get('user')
-      
+
     user = model.User.by_name(user)
 
     from ckan.model import User
@@ -58,7 +57,7 @@ def rating_package_get(context, data_dict):
 
     if not package_id:
         error = _('You must supply a package id '
-                     '(parameter "package_id").')
+                  '(parameter "package_id").')
     if error:
         raise ValidationError(error)
 

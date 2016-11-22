@@ -10,8 +10,14 @@
   {% endif %}
   {% block rating %}
     <p>
-      {% snippet "rating/stars.html", package=pkg %}
-      ({{h.package_rating(None, {'package_id' : pkg.id} ).ratings_count}})
+      {% snippet "rating/stars_inactive.html", package=pkg %}
+    </p>
+  {% endblock %}
+  {% block user_rating %}
+    {{ _('Your rating') }}
+    <p>
+      {%- snippet "rating/stars.html", package=pkg -%}
+      {%- snippet "rating/rating_description.html", rating=h.get_user_rating(pkg.id) -%}
     </p>
   {% endblock %}
   {% if pkg.url %}

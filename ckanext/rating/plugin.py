@@ -1,6 +1,7 @@
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
 from ckanext.rating.logic import action
+from ckanext.rating import helpers
 
 class RatingPlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IConfigurer)
@@ -31,7 +32,8 @@ class RatingPlugin(plugins.SingletonPlugin):
 
     def get_helpers(self):
         return {
-            'package_rating': action.rating_package_get
+            'package_rating': action.rating_package_get,
+            'get_user_rating': helpers.get_user_rating
         }
 
     # IRoutes

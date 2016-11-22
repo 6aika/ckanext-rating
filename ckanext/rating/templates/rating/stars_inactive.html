@@ -3,17 +3,20 @@ Renders a set of stars
 
 stars  - The number of stars to be displayed.
 
-    {% snippet "rating/stars_inactive.html", stars=4 %}
+    {% snippet "rating/stars_inactive.html", package=pkg %}
 
 #}
 
+{% set ratings_count = h.package_rating(None, {'package_id' : package.id} ).ratings_count%}
+{% set stars = h.package_rating(None, {'package_id' : package.id} ).rating %}
 <span class="star-rating{% if stars == 0 %} no-stars{% endif %}">
   <span class="star-rating-stars">
     {%- for index in range(stars|int) -%}
-      <span class="icon icon-star rating-star"></span>
+      <span class="icon icon-star icon-2x rating-star"></span>
     {%- endfor -%}
     {%- for index in range(stars|int, 5) -%}
-      <span class="icon icon-star-empty rating-star"></span>
+      <span class="icon icon-star-empty icon-2x rating-star"></span>
     {%- endfor -%}
   </span>
 </span>
+{{ ratings_count }} {{ _('rating') if ratings_count == 1 else _('ratings') }}
