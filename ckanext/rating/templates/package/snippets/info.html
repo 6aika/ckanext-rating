@@ -1,60 +1,25 @@
-{#
-Displays a sidebard module with information for given package
+{% ckan_extends %}
 
-pkg    - The package dict that owns the resources.
-
-Example:
-
-  {% snippet "package/snippets/info.html", pkg=pkg %}
-
-#}
-{% block package_info %}
-  {% if pkg %}
-    <section class="module module-narrow">
-      <div class="module context-info">
-        <div class="module-content">
-          {% block package_info_inner %}
-            {% block heading %}
-              <h1 class="heading">{{ h.dataset_display_name(pkg) }}</h1>
-            {% endblock %}
-            {% block rating %}
-              <div class="rating">
-                {% block general_rating %}
-                  {{ _('Rating') }}
-                  <div class="rating-container">
-                    {% snippet "rating/stars_inactive.html", package=pkg %}
-                  </div>
-                {% endblock %}
-                {% block user_rating %}
-                  {{ _('Your rating') }}
-                  <div class="rating-container">
-                    {%- snippet "rating/stars.html", package=pkg -%}
-                    <span class="rating-details">
-                      {%- snippet "rating/rating_description.html", rating=h.get_user_rating(pkg.id) -%}
-                    </span>
-                  </div>
-                {% endblock %}
-              </div>
-            {% endblock %}
-            
-            {% block nums %}
-              <div class="nums">
-                <dl>
-                  <dt>{{ _('Followers') }}</dt>
-                  <dd>{{ h.SI_number_span(h.follow_count('dataset', pkg.id)) }}</dd>
-                </dl>
-              </div>
-            {% endblock %}
-            {% block follow_button %}
-              {% if not hide_follow_button %}
-                <div class="follow_button">
-                  {{ h.follow_button('dataset', pkg.name) }}
-                </div>
-              {% endif %}
-            {% endblock %}
-          {% endblock %}
+{% block package_info_inner %}
+  {{ super() }}
+  {% block rating %}
+    <div class="rating">
+      {% block general_rating %}
+        <h2 class="heading">{{ _('Rating') }}</h2>
+        <div class="rating-container">
+          {% snippet "rating/stars_inactive.html", package=pkg %}
         </div>
-      </div>
-    </section>
-  {% endif %}
+      {% endblock %}
+      {% block user_rating %}
+        <h2 class="heading">{{ _('Your rating') }}</h2>
+        <div class="rating-container">
+          {%- snippet "rating/stars.html", package=pkg -%}
+          <span class="rating-details">
+            {%- snippet "rating/rating_description.html", rating=h.get_user_rating(pkg.id) -%}
+          </span>
+        </div>
+      {% endblock %}
+    </div>
+  {% endblock %}
 {% endblock %}
+
