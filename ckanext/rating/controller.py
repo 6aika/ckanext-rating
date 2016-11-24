@@ -1,7 +1,6 @@
 import ckan.plugins as p
 import ckan.model as model
 import ckan.logic as logic
-from ckan.logic import ValidationError
 from ckan.lib.base import h
 
 c = p.toolkit.c
