@@ -2,6 +2,10 @@
   margin: 20px 0;
 }
 
+.rating .heading {
+  margin-bottom: 0;
+}
+
 .rating-container {
   margin-bottom: 20px;
 }
@@ -13,4 +17,9 @@
 a.rating-star-hover,
 a.rating-star-hover:hover {
   color: #a38729;
+}
+
+.rating-description {
+  color: #7c7c82;
+  font-size: 14px;
 }

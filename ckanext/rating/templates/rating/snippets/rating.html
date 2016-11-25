@@ -16,7 +16,7 @@ package  - The package for which the rating is displayed
   {% block user_rating %}
     <h2 class="heading">{{ _('Your rating') }}</h2>
     <div class="rating-container">
-      {%- snippet "rating/snippets/stars.html", package=package -%}
+      {%- snippet "rating/snippets/stars.html", package=package -%}<br>
       <span class="rating-details">
             {%- snippet "rating/snippets/rating_description.html", rating=h.get_user_rating(package.id) -%}
           </span>

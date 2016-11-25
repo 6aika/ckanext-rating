@@ -6,16 +6,18 @@ rating  - The numerical value of the rating to display
     {% snippet "rating/snippets/rating_description.html", rating=4 %}
 #}
 
-{%- if not rating -%}
-    ({{ _('no rating given') }})
-{%- elif rating|int == 1 -%}
+<span class="rating-description">
+  {%- if not rating -%}
+    {{ _('no rating given') }}
+  {%- elif rating|int == 1 -%}
     ({{ _('bad') }})
-{%- elif rating|int == 2 -%}
+  {%- elif rating|int == 2 -%}
     ({{ _('passable') }})
-{%- elif rating|int == 3 -%}
+  {%- elif rating|int == 3 -%}
     ({{ _('ok') }})
-{%- elif rating|int == 4 -%}
+  {%- elif rating|int == 4 -%}
     ({{ _('good') }})
-{%- elif rating|int == 5 -%}
+  {%- elif rating|int == 5 -%}
     ({{ _('excellent') }})
-{%- endif -%}
+  {%- endif -%}
+</span>
