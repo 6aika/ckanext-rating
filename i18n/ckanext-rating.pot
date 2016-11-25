@@ -86,39 +86,3 @@ msgstr ""
 #: ckanext/rating/templates/rating/stars_inactive.html:23
 msgid "ratings"
 msgstr ""
-
-#: ckanext/rating/templates/showcase/snippets/showcase_info.html:8
-msgid "Submitted by"
-msgstr ""
-
-#: ckanext/rating/templates/showcase/snippets/showcase_info.html:26
-msgid "Launch website"
-msgstr ""
-
-#: ckanext/rating/templates/showcase/snippets/showcase_item.html:19
-msgid "This showcase has no description"
-msgstr ""
-
-#: ckanext/rating/templates/showcase/snippets/showcase_item.html:24
-msgid "{num} Dataset"
-msgid_plural "{num} Datasets"
-msgstr[0] ""
-msgstr[1] ""
-
-#: ckanext/rating/templates/showcase/snippets/showcase_item.html:26
-msgid "0 Datasets"
-msgstr ""
-
-#: ckanext/rating/templates/showcase/snippets/showcase_item.html:30
-#: ckanext/rating/templates/showcase/snippets/showcase_item.html:31
-msgid "View {showcase_title}"
-msgstr ""
-
-#: ckanext/rating/templates/showcase/snippets/showcase_item.html:35
-msgid "Remove"
-msgstr ""
-
-#: ckanext/rating/templates/showcase/snippets/showcase_item.html:35
-msgid "Remove dataset from this showcase"
-msgstr ""
-
