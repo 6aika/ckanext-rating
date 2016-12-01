@@ -50,6 +50,8 @@ def rating_package_create(context, data_dict):
 
     return Rating.get_package_rating(package.id)
 
+
+@toolkit.side_effect_free
 def rating_package_get(context, data_dict):
     package_id = data_dict.get('package_id')
 
