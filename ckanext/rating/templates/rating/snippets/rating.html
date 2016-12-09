@@ -1,25 +1,27 @@
 {#
-Renders a complete block of rating snippets
+Renders a complete block of rating snippets with an option to rate the dataset
 
 package  - The package for which the rating is displayed
 
     {% snippet "rating/snippets/rating.html", package=pkg %}
 #}
 
-<div class="rating">
-  {% block general_rating %}
-    <h2 class="heading">{{ _('Rating') }}</h2>
-    <div class="rating-container">
-      {% snippet "rating/snippets/stars_inactive.html", package=package %}
-    </div>
-  {% endblock %}
-  {% block user_rating %}
-    <h2 class="heading">{{ _('Your rating') }}</h2>
-    <div class="rating-container">
-      {%- snippet "rating/snippets/stars.html", package=package -%}<br>
-      <span class="rating-details">
-            {%- snippet "rating/snippets/rating_description.html", rating=h.get_user_rating(package.id) -%}
-          </span>
-    </div>
-  {% endblock %}
-</div>
+{% if h.show_rating_in_type(package.type) %}
+  <div class="rating">
+    {% block general_rating %}
+      <h2 class="heading">{{ _('Rating') }}</h2>
+      <div class="rating-container">
+        {% snippet "rating/snippets/stars_inactive.html", package=package %}
+      </div>
+    {% endblock %}
+    {% block user_rating %}
+      <h2 class="heading">{{ _('Your rating') }}</h2>
+      <div class="rating-container">
+        {%- snippet "rating/snippets/stars.html", package=package -%}<br>
+        <span class="rating-details">
+              {%- snippet "rating/snippets/rating_description.html", rating=h.get_user_rating(package.id) -%}
+            </span>
+      </div>
+    {% endblock %}
+  </div>
+{% endif %}

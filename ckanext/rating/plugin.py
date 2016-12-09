@@ -33,7 +33,8 @@ class RatingPlugin(plugins.SingletonPlugin):
     def get_helpers(self):
         return {
             'package_rating': action.rating_package_get,
-            'get_user_rating': helpers.get_user_rating
+            'get_user_rating': helpers.get_user_rating,
+            'show_rating_in_type': helpers.show_rating_in_type
         }
 
     # IRoutes

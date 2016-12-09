@@ -63,3 +63,13 @@ do::
     cd ckanext-rating
     python setup.py develop
     pip install -r dev-requirements.txt
+
+
+---------------
+Config Settings
+---------------
+
+Optional::
+
+    # List of dataset types for which the rating will be shown (defaults to ['dataset'])
+    ckanext.rating.enabled_dataset_types
