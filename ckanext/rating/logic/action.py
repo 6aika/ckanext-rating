@@ -50,7 +50,19 @@ def rating_package_create(context, data_dict):
 
     return Rating.get_package_rating(package.id)
 
+
+@toolkit.side_effect_free
 def rating_package_get(context, data_dict):
+    '''
+    Get the rating and count of ratings for a package.
+
+    Returns a dictionary containing rating and ratings counts.
+
+    :param package_id: the id of the package
+    :type package_id: string
+    :rtype: dictionary
+
+    '''
     package_id = data_dict.get('package_id')
 
     error = None
