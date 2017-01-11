@@ -55,7 +55,7 @@ setup(
     # simple. Or you can use find_packages().
     packages=find_packages(exclude=['contrib', 'docs', 'tests*']),
 
-    namespace_packages=['ckanext', 'ckanext.rating'],
+    namespace_packages=['ckanext'],
 
     # List run-time dependencies here.  These will be installed by pip when your
     # project is installed. For an analysis of "install_requires" vs pip's
