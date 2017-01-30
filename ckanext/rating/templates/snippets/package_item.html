@@ -1,0 +1,14 @@
+{% resource "rating_css/rating.css" %}
+
+{% ckan_extends %}
+
+{% block heading_title %}
+    {{ h.link_to(h.truncate(title, truncate_title), h.url_for(controller='package', action='read', id=package.name)) }}
+    {% set rating = h.package_rating(None, {'package_id' : package.id} ).rating|float %}
+    {% if rating != 0 %}
+        <div class="dataset-raiting">
+          <span>{{rating|round(1)}}</span>
+          <i class="user-rating-star icon icon-star"></i>
+        </div>
+    {% endif%}
+{% endblock %}

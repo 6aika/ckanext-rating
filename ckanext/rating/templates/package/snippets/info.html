@@ -1,0 +1,16 @@
+{% ckan_extends %}
+
+{% block package_info %}
+    {% if pkg %}
+        <section class="module module-narrow">
+            <div class="module context-info">
+                <div class="module-content">
+                    {% block package_info_inner %}
+                        {{ super() }}
+                    {% endblock %}
+                    {% snippet "rating/snippets/rating.html", package=pkg %}
+                </div>
+            </div>
+        </section>
+    {% endif %}
+{% endblock %}
