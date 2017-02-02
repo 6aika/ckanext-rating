@@ -52,5 +52,6 @@ class RatingPackageController(PackageController):
             c.current_page = self._get_page_number(request.params)
         else:
             c.current_page = 1
+        c.pkg_type = 'dataset'
         result = super(RatingPackageController, self).search()
         return result

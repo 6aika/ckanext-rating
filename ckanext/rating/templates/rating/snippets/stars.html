@@ -15,10 +15,10 @@ package  - The package for which the rating belongs to
 <span class="star-rating{% if stars == 0 %} no-stars{% endif %}">
   <span class="star-rating-stars">
     {%- for index in range(stars|int) -%}
-    <a class="rating-star" id="star-{{index}}" href="/rating/{{ package.type }}/{{ package.name }}/{{ index + 1 }}"><i class="user-rating-star icon icon-star" id="star-{{index}}""></i></a>
+        <a class="rating-star" id="star-{{index}}" href="/rating/{{ package.type }}/{{ package.name }}/{{ index + 1 }}"><i class="user-rating-star icon icon-star" id="star-{{index}}"></i></a>
     {%- endfor -%}
     {%- for index in range(stars|int, 5) -%}
-    <a class="rating-star" id="star-{{index}}" href="/rating/{{ package.type }}/{{ package.name }}/{{ index + 1 }}"><i class="user-rating-star icon icon-star-empty"></i></a>
+        <a class="rating-star" id="star-{{index}}" href="/rating/{{ package.type }}/{{ package.name }}/{{ index + 1 }}"><i class="user-rating-star icon icon-star-empty"></i></a>
     {%- endfor -%}
   </span>
 </span>
