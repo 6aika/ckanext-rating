@@ -27,7 +27,7 @@ package  - The package for which the rating is displayed
             </div>
           {% else %}
             <div class="login-rating-details">
-              <a href="{{h.url_for('login')}}">Login</a> to leave an App Rating
+              <a href="{{ h.url_for('login') }}">{{ _('Login') }}</a> {{ _('to leave a rating') }}
             </div>
           {% endif %}
         {% endblock %}
