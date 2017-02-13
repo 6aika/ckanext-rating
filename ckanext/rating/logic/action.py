@@ -6,6 +6,7 @@ from ckan.plugins import toolkit
 
 log = logging.getLogger(__name__)
 
+
 def rating_package_create(context, data_dict):
     '''Review a dataset (package).
     :param package: the name or id of the dataset to rate
@@ -27,7 +28,7 @@ def rating_package_create(context, data_dict):
     error = None
     if not package_ref:
         error = _('You must supply a package id or name '
-                     '(parameter "package").')
+                  '(parameter "package").')
     elif not rating:
         error = _('You must supply a rating (parameter "rating").')
     else:

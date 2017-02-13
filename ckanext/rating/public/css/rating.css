@@ -23,3 +23,12 @@ a.rating-star-hover:hover {
   color: #7c7c82;
   font-size: 14px;
 }
+
+.dataset-raiting {
+  float: right;
+  display: inline-block;
+}
+
+.dataset-raiting span {
+  font-size: 14px;
+}

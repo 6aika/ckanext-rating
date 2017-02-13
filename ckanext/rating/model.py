@@ -16,8 +16,10 @@ __all__ = ['MIN_RATING', 'MAX_RATING']
 MIN_RATING = 1.0
 MAX_RATING = 5.0
 
+
 def make_uuid():
     return unicode(uuid.uuid4())
+
 
 class Rating(Base):
 
@@ -43,7 +45,7 @@ class Rating(Base):
         existing_rating = cls.get_user_package_rating(ip_or_user, package_id)
 
         if (existing_rating.first()):
-            existing_rating.update({ 'rating': rating })
+            existing_rating.update({'rating': rating})
             model.repo.commit()
             log.info('Review updated for package')
         else:
@@ -55,10 +57,10 @@ class Rating(Base):
                 ip_or_user = None
 
             review = Rating(
-                user_id = user_id,
-                rater_ip = ip_or_user,
-                package_id = package_id,
-                rating = rating
+                user_id=user_id,
+                rater_ip=ip_or_user,
+                package_id=package_id,
+                rating=rating
             )
 
             model.Session.add(review)
@@ -71,7 +73,8 @@ class Rating(Base):
                     .filter(cls.package_id == package_id) \
                     .all()
 
-        average = sum(r.rating for r in ratings) / float(len(ratings)) if len(ratings) > 0 else 0
+        average = sum(r.rating for r in ratings) / float(len(ratings)) if (
+                len(ratings) > 0) else 0
         return {
             'rating': round(average, 2),
             'ratings_count': len(ratings)
@@ -87,10 +90,13 @@ class Rating(Base):
             user_id = ip_or_user.id
             ip_or_user = None
 
-        rating = model.Session.query(cls) \
-                    .filter(cls.package_id == package_id, cls.user_id == user_id, cls.rater_ip == ip_or_user)
+        rating = model.Session.query(cls).filter(
+                    cls.package_id == package_id,
+                    cls.user_id == user_id,
+                    cls.rater_ip == ip_or_user)
 
         return rating
+
 
 def init_tables(engine):
     Base.metadata.create_all(engine)

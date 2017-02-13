@@ -1,5 +1,5 @@
 {#
-Renders a set of stars which are not clickable
+Renders a set of stars
 
 stars  - The number of stars to be displayed.
 
@@ -9,18 +9,32 @@ stars  - The number of stars to be displayed.
 
 {% set ratings_count = h.package_rating(None, {'package_id' : package.id} ).ratings_count%}
 {% set stars = h.package_rating(None, {'package_id' : package.id} ).rating %}
-<span class="star-rating{% if stars == 0 %} no-stars{% endif %}">
-  <span class="star-rating-stars">
-    {%- for index in range(stars|int) -%}
-      <span class="icon icon-star rating-star"></span>
-    {%- endfor -%}
-    {%- for index in range(stars|int, 5) -%}
-      <span class="icon icon-star-empty rating-star"></span>
-    {%- endfor -%}
-  </span>
-</span>
-<br>
-<span class="rating-description">
-  {{ ratings_count }} {{ _('rating') if ratings_count == 1 else _('ratings') }}
-</span>
+{% if stars|int < stars %}
+  {% set half_star = 1 %}
+{% else %}
+  {% set half_star = 0 %}
+{% endif %}
 
+{% block main_star_rating %}
+  <span class="star-rating{% if stars == 0 %} no-stars{% endif %}">
+    <span class="star-rating-stars">
+      {%- for index in range(stars|int) -%}
+        <span class="icon icon-star"></span>
+      {%- endfor -%}
+      {%- if half_star == 1 -%}
+        <span class="icon icon-star-half-empty"></span>
+      {%- endif -%}
+      {%- for index in range(stars|int + half_star, 5) -%}
+        <span class="icon icon-star-empty"></span>
+      {%- endfor -%}
+    </span>
+  </span>
+{% endblock %}
+
+{% block main_star_rating_br %}
+  <br>
+{% endblock %}
+
+{% block star_rating_description %}
+  <span class="rating-description">{{ ratings_count }} {{ _('rating') if ratings_count == 1 else _('ratings') }}</span>
+{% endblock %}
