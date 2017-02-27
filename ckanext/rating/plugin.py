@@ -51,7 +51,6 @@ class RatingPlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IActions)
     plugins.implements(plugins.ITemplateHelpers)
     plugins.implements(plugins.IAuthFunctions)
-    plugins.implements(plugins.IPackageController, inherit=True)
     plugins.implements(plugins.IRoutes, inherit=True)
 
     # IConfigurer
@@ -87,26 +86,7 @@ class RatingPlugin(plugins.SingletonPlugin):
     def get_auth_functions(self):
         return rating_auth.get_rating_auth_dict()
 
-    # IPackageController
 
-    def before_search(self, search_params):
-        sort = request.params.get('sort', '')
-        if sort in ['rating desc', 'rating asc']:
-            search_params['q'] = sort_by_rating(sort)
-            search_params['start'] = 0
-        return search_params
-
-    def after_search(self, search_results, search_params):
-        sort = search_params.get('sort', '')
-        if sort in ['rating desc', 'rating asc']:
-            tmp = []
-            for id in c.qr:
-                for pkg in search_results['results']:
-                    if id == pkg['id']:
-                        tmp.append(pkg)
-            search_results['results'] = tmp
-            search_results['count'] = c.count_pkg
-        return search_results
 
     # IRoutes
 
