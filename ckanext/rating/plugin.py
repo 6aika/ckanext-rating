@@ -8,6 +8,7 @@ from ckanext.rating.logic import action
 from ckanext.rating import helpers
 import ckanext.rating.logic.auth as rating_auth
 from ckanext.rating.model import Rating
+from ckan.lib.plugins import DefaultTranslation
 
 
 def sort_by_rating(sort):
@@ -46,12 +47,14 @@ def sort_by_rating(sort):
     return q
 
 
-class RatingPlugin(plugins.SingletonPlugin):
+class RatingPlugin(plugins.SingletonPlugin, DefaultTranslation):
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.IActions)
     plugins.implements(plugins.ITemplateHelpers)
     plugins.implements(plugins.IAuthFunctions)
     plugins.implements(plugins.IRoutes, inherit=True)
+    if toolkit.check_ckan_version(min_version='2.5.0'):
+        plugins.implements(plugins.ITranslation, inherit=True)
 
     # IConfigurer
 
