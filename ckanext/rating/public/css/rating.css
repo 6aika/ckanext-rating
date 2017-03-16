@@ -1,3 +1,17 @@
+.rating-wrapper {
+  text-align: center;
+  margin: auto;
+  display: inline-block;
+}
+
+.rating-stars-wrapper {
+  padding: 5px;
+  margin-bottom: 5px;
+  border-width: 0 0 1px 0;
+  border-style: solid;
+  border-color: #dddddd;
+}
+
 .rating {
   margin: 20px 0;
 }
@@ -6,17 +20,29 @@
   margin-bottom: 0;
 }
 
+.rating-value {
+  font-size: 24px;
+  display: block;
+}
+
 .rating-container {
   margin-bottom: 20px;
 }
 
 .rating-star {
   font-size: 1.5em;
+  padding: 0 5px;
 }
 
 a.rating-star-hover,
 a.rating-star-hover:hover {
   color: #a38729;
+  text-decoration: none;
+}
+
+a.rating-star:focus,
+a.rating-star:active {
+  text-decoration: none;
 }
 
 .rating-description {
