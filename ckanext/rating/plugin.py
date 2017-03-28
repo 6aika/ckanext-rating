@@ -52,6 +52,7 @@ class RatingPlugin(plugins.SingletonPlugin, DefaultTranslation):
     plugins.implements(plugins.IActions)
     plugins.implements(plugins.ITemplateHelpers)
     plugins.implements(plugins.IAuthFunctions)
+    plugins.implements(plugins.IPackageController, inherit=True)
     plugins.implements(plugins.IRoutes, inherit=True)
     if toolkit.check_ckan_version(min_version='2.5.0'):
         plugins.implements(plugins.ITranslation, inherit=True)
@@ -89,7 +90,12 @@ class RatingPlugin(plugins.SingletonPlugin, DefaultTranslation):
     def get_auth_functions(self):
         return rating_auth.get_rating_auth_dict()
 
+    # IPackageController
 
+    def before_index(self, data_dict):
+        rating_dict = action.rating_package_get(None, { 'package_id': data_dict['id'] })
+        data_dict['rating'] = rating_dict.get('rating')
+        return data_dict
 
     # IRoutes
 
