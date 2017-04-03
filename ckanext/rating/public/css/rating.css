@@ -10,6 +10,25 @@
   border-width: 0 0 1px 0;
   border-style: solid;
   border-color: #dddddd;
+  display: block;
+}
+
+.rating-stars-wrapper.rating-stars-wrapper-flat {
+  padding: 0;
+  margin-bottom: 0;
+  border-width: 0;
+  border-style: none;
+  border-color: transparent;
+  display: inline-block;
+}
+
+.star-rating,
+.star-rating-stars {
+  display: inline-block;
+}
+
+.rating-count {
+  vertical-align: super;
 }
 
 .rating {
@@ -30,6 +49,7 @@
 }
 
 .rating-star {
+  float: left;
   font-size: 1.5em;
   padding: 0 5px;
 }
@@ -50,11 +70,11 @@ a.rating-star:active {
   font-size: 14px;
 }
 
-.dataset-raiting {
+.dataset-rating {
   float: right;
   display: inline-block;
 }
 
-.dataset-raiting span {
+.dataset-rating span {
   font-size: 14px;
 }
