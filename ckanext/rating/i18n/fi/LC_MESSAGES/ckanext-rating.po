@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-rating 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-03-17 06:24+0000\n"
+"POT-Creation-Date: 2017-06-22 11:21+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Mikko Nieminen <mikko.nieminen@gofore.com>, 2016\n"
 "Language-Team: Finnish (https://www.transifex.com/6aika-dataportal/teams/68018/fi/)\n"
@@ -29,12 +29,12 @@ msgstr "Luokitus täytyy antaa (parametri \"rating\")."
 
 #: ckanext/rating/logic/action.py:38
 msgid "Rating must be an integer value."
-msgstr "Arvosanan on oltava numero"
+msgstr "Käyttäjäarvion on oltava numero"
 
 #: ckanext/rating/logic/action.py:42
 #, python-format
 msgid "Rating must be between %i and %i."
-msgstr "Arvosanan on oltava väliltä %i ja %i."
+msgstr "Käyttäjäarvion on oltava väliltä %i ja %i."
 
 #: ckanext/rating/logic/action.py:45
 msgid "Not found"
@@ -58,11 +58,11 @@ msgstr "Nimen mukaan laskevasti"
 
 #: ckanext/rating/templates/package/search.html:15
 msgid "Rating Ascending"
-msgstr "Arvosana nousevasti"
+msgstr "Käyttäjäarvio (parhaat ensin)"
 
 #: ckanext/rating/templates/package/search.html:16
 msgid "Rating Descending"
-msgstr "Arvosana laskevasti"
+msgstr "Käyttäjäarvio (heikoimmat ensin)"
 
 #: ckanext/rating/templates/package/search.html:17
 msgid "Last Modified"
@@ -75,11 +75,11 @@ msgstr "Suositut"
 #: ckanext/rating/templates/rating/snippets/rating.html:13
 #: ckanext/rating/templates/rating/snippets/rating_inactive.html:12
 msgid "Rating"
-msgstr "Arvosana"
+msgstr "Käyttäjäarvio"
 
 #: ckanext/rating/templates/rating/snippets/rating.html:20
 msgid "Your rating"
-msgstr "Antamasi arvosana"
+msgstr "Antamasi käyttäjäarvio"
 
 #: ckanext/rating/templates/rating/snippets/rating.html:30
 msgid "Login"
@@ -87,11 +87,11 @@ msgstr "Kirjaudu"
 
 #: ckanext/rating/templates/rating/snippets/rating.html:30
 msgid "to leave a rating"
-msgstr "jättääksesi arvostelun"
+msgstr "jättääksesi käyttäjäarvion"
 
 #: ckanext/rating/templates/rating/snippets/rating_description.html:11
 msgid "no rating given"
-msgstr "arvosanaa ei annettu"
+msgstr "käyttäjäarviota ei ole annettu"
 
 #: ckanext/rating/templates/rating/snippets/rating_description.html:13
 msgid "bad"
@@ -113,14 +113,10 @@ msgstr "hyvä"
 msgid "excellent"
 msgstr "loistava"
 
-#: ckanext/rating/templates/rating/snippets/rating_single.html:35
-msgid "total"
-msgstr "yhteensä"
-
-#: ckanext/rating/templates/rating/snippets/stars_inactive.html:39
+#: ckanext/rating/templates/rating/snippets/stars_inactive.html:35
 msgid "rating"
-msgstr "arvostelu"
+msgstr "käyttäjäarvio"
 
-#: ckanext/rating/templates/rating/snippets/stars_inactive.html:39
+#: ckanext/rating/templates/rating/snippets/stars_inactive.html:35
 msgid "ratings"
-msgstr "arvostelua"
+msgstr "käyttäjäarviota"

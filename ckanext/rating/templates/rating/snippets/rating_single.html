@@ -43,7 +43,7 @@
   </div>
   <span class="rating-count">
     {% set ratings_count = h.package_rating(None, {'package_id' : package.id} ).ratings_count%}
-    {{ _('total') }} {{ ratings_count }}
+    ({{ ratings_count }})
   </span>
 
 </div>

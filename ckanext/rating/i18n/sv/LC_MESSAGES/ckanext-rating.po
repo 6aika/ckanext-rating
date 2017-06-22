@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-rating 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-03-17 06:24+0000\n"
+"POT-Creation-Date: 2017-06-22 11:21+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Language-Team: Swedish (https://www.transifex.com/6aika-dataportal/teams/68018/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -112,14 +112,10 @@ msgstr ""
 msgid "excellent"
 msgstr ""
 
-#: ckanext/rating/templates/rating/snippets/rating_single.html:35
-msgid "total"
-msgstr ""
-
-#: ckanext/rating/templates/rating/snippets/stars_inactive.html:39
+#: ckanext/rating/templates/rating/snippets/stars_inactive.html:35
 msgid "rating"
 msgstr ""
 
-#: ckanext/rating/templates/rating/snippets/stars_inactive.html:39
+#: ckanext/rating/templates/rating/snippets/stars_inactive.html:35
 msgid "ratings"
 msgstr ""
