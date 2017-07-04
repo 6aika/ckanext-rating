@@ -28,9 +28,8 @@ stars  - The number of stars to be displayed.
         <span class="icon icon-star-empty rating-star"></span>
       {%- endfor -%}
     </span>
+    {% block star_rating_description %}
+      <span class="rating-description">({{ ratings_count }})</span>
+    {% endblock %}
   </span>
-{% endblock %}
-
-{% block star_rating_description %}
-  <span class="rating-description">{{ ratings_count }} {{ _('rating') if ratings_count == 1 else _('ratings') }}</span>
 {% endblock %}
