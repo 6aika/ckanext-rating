@@ -16,5 +16,5 @@ def check_access_user(context, data_dict):
         return {'success': True}
     else:
         allow_rating = toolkit.asbool(
-            config.get('rating.enabled_for_unauthenticated_users', True))
+            config.get('ckanext.rating.enabled_for_unauthenticated_users', True))
     return {'success': allow_rating}
