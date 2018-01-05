@@ -1,6 +1,8 @@
 {#
 Renders a block of rating info which displays the current average rating
-and enables user rating input using the same element
+and enables user rating input using the same element, hence named flat
+
+Also uses only one icon type and the number of stars is highlighted with star-filled and star-empty classes
 
 package  - The package for which the rating is displayed
 
@@ -25,16 +27,16 @@ package  - The package for which the rating is displayed
       <span class="star-rating-stars">
         {%- for index in range(stars|int) -%}
           {% if enable_input %}
-            <a class="icon icon-star rating-star" id="star-{{index}}" href="{{ h.url_for(controller='ckanext.rating.controller:RatingController', action=action, package=package.name, rating=index+1) }}"></a>
+            <a class="fa fa-star rating-star rating-star-filled" id="star-{{index}}" href="{{ h.url_for(controller='ckanext.rating.controller:RatingController', action=action, package=package.name, rating=index+1) }}"></a>
           {% else %}
-            <span class="icon icon-star rating-star"></span>
+            <span class="fa fa-star rating-star rating-star-filled"></span>
           {% endif %}
         {%- endfor -%}
         {%- for index in range(stars|int, 5) -%}
           {% if enable_input %}
-            <a class="icon icon-star-empty rating-star" href="{{ h.url_for(controller='ckanext.rating.controller:RatingController', action=action, package=package.name, rating=index+1) }}"></a>
+            <a class="fa fa-star rating-star rating-star-empty" href="{{ h.url_for(controller='ckanext.rating.controller:RatingController', action=action, package=package.name, rating=index+1) }}"></a>
           {% else %}
-            <span class="icon icon-star-empty rating-star"></span>
+            <span class="fa fa-star rating-star rating-star-empty"></span>
           {% endif %}
         {%- endfor -%}
       </span>
