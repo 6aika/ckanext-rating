@@ -10,6 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-06-22 11:21+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Joonas Dukpa, 2018\n"
 "Language-Team: Swedish (https://www.transifex.com/6aika-dataportal/teams/68018/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -20,40 +21,40 @@ msgstr ""
 
 #: ckanext/rating/logic/action.py:30
 msgid "You must supply a package id or name (parameter \"package\")."
-msgstr ""
+msgstr "Du måste ange ett paket-ID eller namn (parameter \"package\")."
 
 #: ckanext/rating/logic/action.py:33
 msgid "You must supply a rating (parameter \"rating\")."
-msgstr ""
+msgstr "Du måste ange ett betyg (parametern \"rating\")."
 
 #: ckanext/rating/logic/action.py:38
 msgid "Rating must be an integer value."
-msgstr ""
+msgstr "Betyg måste vara ett heltal."
 
 #: ckanext/rating/logic/action.py:42
 #, python-format
 msgid "Rating must be between %i and %i."
-msgstr ""
+msgstr "Betyg måste vara mellan %i och %i."
 
 #: ckanext/rating/logic/action.py:45
 msgid "Not found"
-msgstr ""
+msgstr "Hittades inte"
 
 #: ckanext/rating/logic/action.py:72
 msgid "You must supply a package id (parameter \"package_id\")."
-msgstr ""
+msgstr "Du måste ange ett paket-ID (parameter \"package_id\")."
 
 #: ckanext/rating/templates/package/search.html:12
 msgid "Relevance"
-msgstr ""
+msgstr "Relevans"
 
 #: ckanext/rating/templates/package/search.html:13
 msgid "Name Ascending"
-msgstr ""
+msgstr "Namn, stigande"
 
 #: ckanext/rating/templates/package/search.html:14
 msgid "Name Descending"
-msgstr ""
+msgstr "Namn, fallande"
 
 #: ckanext/rating/templates/package/search.html:15
 msgid "Rating Ascending"
@@ -65,11 +66,11 @@ msgstr ""
 
 #: ckanext/rating/templates/package/search.html:17
 msgid "Last Modified"
-msgstr ""
+msgstr "Senast ändrad"
 
 #: ckanext/rating/templates/package/search.html:18
 msgid "Popular"
-msgstr ""
+msgstr "Populära"
 
 #: ckanext/rating/templates/rating/snippets/rating.html:13
 #: ckanext/rating/templates/rating/snippets/rating_inactive.html:12
@@ -78,11 +79,11 @@ msgstr ""
 
 #: ckanext/rating/templates/rating/snippets/rating.html:20
 msgid "Your rating"
-msgstr ""
+msgstr "Dina betyg"
 
 #: ckanext/rating/templates/rating/snippets/rating.html:30
 msgid "Login"
-msgstr ""
+msgstr "Logga in"
 
 #: ckanext/rating/templates/rating/snippets/rating.html:30
 msgid "to leave a rating"
