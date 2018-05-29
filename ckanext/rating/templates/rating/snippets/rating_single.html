@@ -18,7 +18,7 @@
   {% set action = 'submit_showcase_rating' %}
 {% endif %}
 
-{% set stars = h.package_rating(None, {'package_id' : package.id} ).rating %}
+{% set stars = package.rating %}
 <div class="rating-wrapper">
   <span class="rating-value">{{stars}}</span>
   <div class="rating-stars-wrapper {{ 'input-enabled' if enable_input }}">
@@ -42,7 +42,7 @@
     </span>
   </div>
   <span class="rating-count">
-    {% set ratings_count = h.package_rating(None, {'package_id' : package.id} ).ratings_count%}
+    {% set ratings_count = package.ratings_count%}
     ({{ ratings_count }})
   </span>
 
