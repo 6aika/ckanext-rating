@@ -1,5 +1,6 @@
 from ckan.lib.cli import CkanCommand
 
+
 class RatingCommand(CkanCommand):
     '''
     Send notification emails of datasets which have a reminder date set
@@ -30,7 +31,6 @@ class RatingCommand(CkanCommand):
             self.init_db()
         else:
             self.log.error('Command "%s" not recognized' % (cmd,))
-
 
     def init_db(self):
         import ckan.model as model
