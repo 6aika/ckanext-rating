@@ -11,6 +11,7 @@ flatten_to_string_key = logic.flatten_to_string_key
 NotAuthorized = logic.NotAuthorized
 abort = base.abort
 
+
 class RatingController(p.toolkit.BaseController):
 
     def submit_package_rating(self, package, rating):

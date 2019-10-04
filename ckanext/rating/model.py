@@ -29,7 +29,7 @@ class Rating(Base):
     package_id = Column(types.UnicodeText, nullable=True, index=True)
     rating = Column(types.Float, nullable=False)
     user_id = Column(types.UnicodeText, nullable=True, index=True)
-    rater_ip = Column(types.UnicodeText) # Used for identification if user is not authenticated
+    rater_ip = Column(types.UnicodeText)  # Used for identification if user is not authenticated
     created = Column(types.DateTime, default=datetime.datetime.now)
     updated = Column(types.DateTime, default=datetime.datetime.now)
 

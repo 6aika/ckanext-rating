@@ -1,6 +1,6 @@
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
-from ckan.common import request, c, g
+from ckan.common import c, g
 import sqlalchemy
 import ckan.model as model
 
@@ -27,7 +27,9 @@ def sort_by_rating(sort):
     c.count_pkg = model.Session.query(
                 sqlalchemy.func.count(model.Package.id)).\
         filter(model.Package.type == 'dataset').\
-        filter(model.Package.private == False).\
+        filter(
+            model.Package.private == False # noqa E712
+        ).\
         filter(model.Package.state == 'active').scalar()
     query = model.Session.query(
                 model.Package.id, model.Package.title,
@@ -36,7 +38,9 @@ def sort_by_rating(sort):
                 label('rating_avg')).\
         outerjoin(Rating, Rating.package_id == model.Package.id).\
         filter(model.Package.type == 'dataset').\
-        filter(model.Package.private == False).\
+        filter(
+            model.Package.private == False # noqa E712
+        ).\
         filter(model.Package.state == 'active').\
         group_by(model.Package.id).\
         distinct()
@@ -99,7 +103,7 @@ class RatingPlugin(plugins.SingletonPlugin, DefaultTranslation):
     # IPackageController
 
     def before_index(self, data_dict):
-        rating_dict = action.rating_package_get(None, { 'package_id': data_dict['id'] })
+        rating_dict = action.rating_package_get(None, {'package_id': data_dict['id']})
         data_dict['rating'] = rating_dict.get('rating')
         return data_dict
 
@@ -110,7 +114,6 @@ class RatingPlugin(plugins.SingletonPlugin, DefaultTranslation):
             pkg_dict['rating'] = rating_dict.get('rating', 0)
             pkg_dict['ratings_count'] = rating_dict.get('ratings_count', 0)
         return pkg_dict
-
 
     def after_search(self, search_results, search_params):
 
@@ -140,5 +143,3 @@ class RatingPlugin(plugins.SingletonPlugin, DefaultTranslation):
         )
 
         return map
-
-
