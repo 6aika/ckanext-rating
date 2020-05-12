@@ -78,3 +78,32 @@ a.rating-star:active {
 .dataset-rating span {
   font-size: 14px;
 }
+
+.glyphicon-star {
+	color: #e67e22;
+}
+
+.glyphicon-star-empty {
+	color: #e67e22;
+}
+
+.glyphicon-star.half {
+	position: relative;
+}
+
+.glyphicon-star.half:before {
+	position: relative;
+	z-index: 9;
+	width: 47%;
+	display: block;
+	overflow: hidden;
+}
+
+.glyphicon-star.half:after {
+	content: '\e006';
+	position: absolute;
+	z-index: 8;
+	color: #bdc3c7;
+	top: 0;
+	left: 0;
+}
