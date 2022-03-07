@@ -21,7 +21,10 @@ def rating_package_create(context, data_dict):
 
     from ckan.model import User
     if not isinstance(user, User):
-        user = toolkit.request.environ.get('REMOTE_ADDR')
+        if toolkit.request.environ.get('HTTP_X_FORWARDED_FOR') is None:
+            user = toolkit.request.environ.get('REMOTE_ADDR')
+        else:
+            user = toolkit.request.environ.get('HTTP_X_FORWARDED_FOR')
 
     package_ref = data_dict.get('package')
     rating = data_dict.get('rating')
