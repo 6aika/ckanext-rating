@@ -18,7 +18,11 @@ MAX_RATING = 5.0
 
 
 def make_uuid():
-    return str(uuid.uuid4())
+    try:
+        unicode('')
+    except NameError:
+        unicode = str
+    return unicode(uuid.uuid4())
 
 
 class Rating(Base):

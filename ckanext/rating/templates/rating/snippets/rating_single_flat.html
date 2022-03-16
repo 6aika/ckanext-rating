@@ -9,9 +9,9 @@ package  - The package for which the rating is displayed
 {% snippet "rating/snippets/rating_single_flat.html", package=pkg %}
 #}
 
-{% resource "rating_css/rating.css" %}
+{% asset "rating/rating-css" %}
 {% if enable_input %}
-{% resource "rating_js/rating.js" %}
+{% asset "rating/rating-js" %}
 {% endif %}
 
 {% set action = 'submit_package_rating' %}

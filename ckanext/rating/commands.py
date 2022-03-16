@@ -1,5 +1,7 @@
-from ckan.lib.cli import CkanCommand
+import sys
 
+from ckan.plugins.toolkit import CkanCommand
+import ckanext.rating.utils as utils
 
 class RatingCommand(CkanCommand):
     '''
@@ -21,8 +23,8 @@ class RatingCommand(CkanCommand):
         Parse command line arguments and call appropriate method.
         """
         if not self.args or self.args[0] in ['--help', '-h', 'help']:
-            print(RatingCommand.__doc__)
-            return
+            self.parser.print_usage()
+            sys.exit(1)
 
         cmd = self.args[0]
         self._load_config()
@@ -33,6 +35,4 @@ class RatingCommand(CkanCommand):
             self.log.error('Command "%s" not recognized' % (cmd,))
 
     def init_db(self):
-        import ckan.model as model
-        from ckanext.rating.model import init_tables
-        init_tables(model.meta.engine)
+        utils.init_db()

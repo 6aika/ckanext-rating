@@ -46,7 +46,14 @@ To install ckanext-rating:
 
 5. Initialize database tables used by Rating::
 
+    ON CKAN >= 2.9:
+    
+    ckan --config=production.ini rating init
+
+    ON CKAN < 2.8:
+    
     paster --plugin=ckanext-rating rating init --config=production.ini
+    
 
 6. If you want to use this extension for ckanext-showcase, install it into your environment by following the instructions at https://github.com/ckan/ckanext-showcase
 
