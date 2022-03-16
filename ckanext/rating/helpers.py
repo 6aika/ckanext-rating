@@ -1,9 +1,8 @@
 from ckanext.rating.model import Rating
 from ckan.plugins import toolkit
-from pylons import config
+from ckantoolkit import config
 
 c = toolkit.c
-
 
 def get_user_rating(package_id):
     if not c.userobj:

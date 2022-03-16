@@ -5,16 +5,31 @@ import sqlalchemy
 import ckan.model as model
 
 from ckanext.rating.logic import action
-from ckanext.rating import helpers
 import ckanext.rating.logic.auth as rating_auth
 from ckanext.rating.model import Rating
-from ckan.lib.plugins import DefaultTranslation
 from ckan.plugins.toolkit import get_action
-from helpers import show_rating_in_type
+from ckanext.rating import helpers
+from ckanext.rating.helpers import show_rating_in_type
 
 import logging
 
 log = logging.getLogger(__name__)
+
+if toolkit.check_ckan_version(min_version='2.5'):
+    from ckan.lib.plugins import DefaultTranslation
+
+    class RatingPluginBase(plugins.SingletonPlugin, DefaultTranslation):
+        plugins.implements(plugins.ITranslation, inherit=True)
+else:
+    class RatingPluginBase(plugins.SingletonPlugin):
+        pass
+
+if toolkit.check_ckan_version(u'2.9'):
+    from ckanext.rating.plugin.flask_plugin import MixinPlugin
+    ckan_29_or_higher = True
+else:
+    from ckanext.rating.plugin.pylons_plugin import MixinPlugin
+    ckan_29_or_higher = False
 
 
 def sort_by_rating(sort):
@@ -56,25 +71,19 @@ def sort_by_rating(sort):
     q = tmp[:-4] + ')'
     return q
 
-
-class RatingPlugin(plugins.SingletonPlugin, DefaultTranslation):
+class RatingPlugin(RatingPluginBase, MixinPlugin):
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.IActions)
     plugins.implements(plugins.ITemplateHelpers)
     plugins.implements(plugins.IAuthFunctions)
     plugins.implements(plugins.IPackageController, inherit=True)
-    plugins.implements(plugins.IRoutes, inherit=True)
-    if toolkit.check_ckan_version(min_version='2.5.0'):
-        plugins.implements(plugins.ITranslation, inherit=True)
 
     # IConfigurer
 
     def update_config(self, config_):
-        toolkit.add_template_directory(config_, 'templates')
-        toolkit.add_public_directory(config_, 'public')
-        toolkit.add_resource('fanstatic', 'rating')
-        toolkit.add_resource('public/css/', 'rating_css')
-        toolkit.add_resource('public/js/', 'rating_js')
+        toolkit.add_template_directory(config_, '../templates')
+        toolkit.add_public_directory(config_, '../public')
+        toolkit.add_resource('../assets', 'rating')
 
     # IActions
 
@@ -124,22 +133,4 @@ class RatingPlugin(plugins.SingletonPlugin, DefaultTranslation):
                 pkg['ratings_count'] = rating_dict.get('ratings_count', 0)
         return search_results
 
-    # IRoutes
-
-    def before_map(self, map):
-        map.connect('/rating/dataset/:package/:rating',
-                    controller='ckanext.rating.controller:RatingController',
-                    action='submit_package_rating')
-
-        map.connect('/rating/showcase/:package/:rating',
-                    controller='ckanext.rating.controller:RatingController',
-                    action='submit_showcase_rating')
-
-        map.connect(
-            '/dataset',
-            controller='ckanext.rating.controller:RatingPackageController',
-            action='search',
-            highlight_actions='index search'
-        )
-
-        return map
+    

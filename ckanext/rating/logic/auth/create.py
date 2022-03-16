@@ -1,4 +1,4 @@
-import pylons.config as config
+import ckantoolkit as config
 from ckan.plugins import toolkit
 import ckan.logic as logic
 c = toolkit.c

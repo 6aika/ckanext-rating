@@ -7,9 +7,10 @@ package  - The package for which the rating belongs to
     {% snippet "rating/snippets/stars.html", package=pkg %}
 
 #}
+{% set ckan_29_or_higher = h.ckan_version().split('.')[1] | int >= 9 %}
 
-{% resource "rating_css/rating.css" %}
-{% resource "rating_js/rating.js" %}
+{% asset "rating/rating-css" %}
+{% asset "rating/rating-js" %}
 
 {% set action = 'submit_package_rating' %}
 {% if package.type == 'showcase' %}
@@ -20,10 +21,20 @@ package  - The package for which the rating belongs to
 <span class="star-rating{% if stars == 0 %} no-stars{% endif %}">
   <span class="star-rating-stars">
     {%- for index in range(stars|int) -%}
-      <a class="icon icon-star rating-star" id="star-{{index}}" href="{{ h.url_for(controller='ckanext.rating.controller:RatingController', action=action, package=package.name, rating=index+1) }}"></a>
+      {% if ckan_29_or_higher %}
+      {% set url = h.url_for('rating.'+action, package=package.name, rating=index+1) %}
+      {% else %}
+      {% set url = h.url_for(controller='ckanext.rating.controller:RatingController', action=action, package=package.name, rating=index+1) %}
+      {% endif %}
+      <a class="icon icon-star rating-star" id="star-{{index}}" href="{{ url }}"></a>
     {%- endfor -%}
     {%- for index in range(stars|int, 5) -%}
-      <a class="icon icon-star-empty rating-star" href="{{ h.url_for(controller='ckanext.rating.controller:RatingController', action=action, package=package.name, rating=index+1) }}"></a>
+      {% if ckan_29_or_higher %}
+      {% set url = h.url_for('rating.'+action, package=package.name, rating=index+1) %}
+      {% else %}
+      {% set url = h.url_for(controller='ckanext.rating.controller:RatingController', action=action, package=package.name, rating=index+1) %}
+      {% endif %}
+      <a class="icon icon-star-empty rating-star" href="{{ url }}"></a>
     {%- endfor -%}
   </span>
 </span>

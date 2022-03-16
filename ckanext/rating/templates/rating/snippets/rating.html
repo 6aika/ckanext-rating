@@ -6,7 +6,7 @@ package  - The package for which the rating is displayed
     {% snippet "rating/snippets/rating.html", package=pkg %}
 #}
 
-{% resource "rating_css/rating.css" %}
+{% asset "rating/rating-css" %}
 {% if h.show_rating_in_type(package.type) %}
     <div class="rating">
       {% block general_rating %}
