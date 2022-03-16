@@ -1,8 +1,7 @@
-import ckantoolkit as config
+from ckantoolkit import config
 from ckan.plugins import toolkit
 import ckan.logic as logic
 c = toolkit.c
-
 
 def rating_create_auth():
     return {
