@@ -30,7 +30,7 @@ class RatingController(p.toolkit.BaseController):
         try:
             p.toolkit.check_access('check_access_user', context, data_dict)
             p.toolkit.get_action('rating_package_create')(context, data_dict)
-            h.redirect_to(controller='ckanext.sixodp_showcase.controller:Sixodp_ShowcaseController', action='read', id=package)
+            h.redirect_to('sixodp_showcase.read', id=package)
         except NotAuthorized:
             abort(403, _('Unauthenticated user not allowed to submit ratings.'))
 
